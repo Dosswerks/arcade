@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "games": [
+    {
+      "title": "Barrel Bears",
+      "slug": "barrel-bears",
+      "description": "Catch falling bear cubs in your barrel before they hit the ground!",
+      "long_description": "A fast-paced arcade game inspired by the Atari classic Kaboom. Move your barrel left and right to catch falling bear cubs. Speed increases with each level. How long can you keep up?",
+      "cover_image": "assets/barrel-bears-cover.webp",
+      "cover_image_fallback": "assets/barrel-bears-cover.jpg",
+      "attract_video": "assets/barrel-bears-attract.mp4",
+      "attract_video_webm": "assets/barrel-bears-attract.webm",
+      "game_url": "https://dosswerks.github.io/barrel-bears/",
+      "logo_image": "assets/barrel-bears-logo.webp",
+      "display_order": 1,
+      "publication_date": "2025-01-15",
+      "featured": true,
+      "status": "published",
+      "screenshots": [
+        "assets/barrel-bears-ss1.webp",
+        "assets/barrel-bears-ss2.webp"
+      ],
+      "controls": "Move mouse or finger horizontally to position the barrel. Catch all falling cubs!",
+      "credits": "Design & Code: Dosswerks"
+    },
+    {
+      "title": "Krampus Run",
+      "slug": "krampus-run",
+      "description": "Outrun the holiday horror through twisted streets before Krampus catches you!",
+      "long_description": "Dash through a dark village on Christmas Eve as Krampus closes in. Dodge obstacles, grab power-ups, and survive as long as you can in this endless runner with a spooky holiday twist.",
+      "cover_image": "assets/krampus-cover.webp",
+      "cover_image_fallback": "assets/krampus-cover.jpg",
+      "attract_video": "assets/krampus-attract.mp4",
+      "attract_video_webm": "assets/krampus-attract.webm",
+      "game_url": "https://dosswerks.github.io/krampus/",
+      "logo_image": "assets/krampus-logo.webp",
+      "display_order": 2,
+      "publication_date": "2025-03-01",
+      "featured": false,
+      "status": "published",
+      "controls": "Tap or click to jump. Double-tap for a high jump. Avoid all obstacles!"
+    },
+    {
+      "title": "Innsmouth Invaders",
+      "slug": "innsmouth-invaders",
+      "description": "Defend the coast from Lovecraftian sea creatures in this retro shooter.",
+      "cover_image": "assets/innsmouth-cover.webp",
+      "game_url": "https://dosswerks.github.io/innsmouth-invaders/",
+      "display_order": 3,
+      "featured": false,
+      "status": "coming_soon"
+    },
+    {
+      "title": "Secret Project",
+      "slug": "secret-project",
+      "description": "Something mysterious is in the works. Stay tuned for the big reveal!",
+      "cover_image": "assets/secret-project-cover.webp",
+      "game_url": "https://dosswerks.github.io/secret-project/",
+      "display_order": 4,
+      "featured": false,
+      "status": "unpublished"
+    }
+  ]
+}

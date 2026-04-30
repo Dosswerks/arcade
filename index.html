@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dosswerks Arcade — Browser Games by Andrew Doss</title>
+  <meta name="description" content="Play free browser-based arcade games. A retro-inspired game showcase featuring original titles in an immersive Flynn's Arcade-style experience.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Dosswerks Arcade">
+  <meta property="og:description" content="Play free browser-based arcade games. A retro-inspired game showcase.">
+  <meta property="og:image" content="og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dosswerks Arcade">
+  <meta name="twitter:description" content="Play free browser-based arcade games. A retro-inspired game showcase.">
+  <meta name="twitter:image" content="og-image.jpg">
+
+  <!-- Plausible Analytics — replace YOUR_DOMAIN with your actual domain -->
+  <script defer data-domain="YOUR_DOMAIN" src="https://plausible.io/js/script.js"></script>
+
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="arcade-page">
+
+  <!-- Skip-to-content link — first focusable element (Req 16.9) -->
+  <a href="#game-carousel" class="skip-link">Skip to games</a>
+
+  <noscript>
+    <div class="noscript-fallback">
+      <h1 class="neon-logo">DOSSWERKS ARCADE</h1>
+      <p>Dosswerks Arcade requires JavaScript to run.</p>
+    </div>
+  </noscript>
+
+  <div class="brick-facade">
+
+    <!-- Header — Neon logo area (Req 1) -->
+    <header class="site-header">
+      <h1 class="neon-logo">DOSSWERKS ARCADE</h1>
+    </header>
+
+    <!-- Main — Carousel and game content -->
+    <main>
+      <section
+        id="game-carousel"
+        class="carousel"
+        role="region"
+        aria-label="Game carousel"
+        aria-roledescription="carousel"
+      >
+        <!-- Carousel navigation (Req 3, 16.1–16.2) -->
+        <nav class="carousel-nav" aria-label="Carousel navigation">
+          <button class="carousel-btn carousel-btn--prev" aria-label="Previous game">
+            <span aria-hidden="true">&#8249;</span>
+          </button>
+          <button class="carousel-btn carousel-btn--next" aria-label="Next game">
+            <span aria-hidden="true">&#8250;</span>
+          </button>
+        </nav>
+
+        <!-- Card track — JS will inject real cards here; skeleton cards show before JS loads (Req 19.1) -->
+        <div class="carousel-track">
+          <div class="skeleton-card" aria-hidden="true"></div>
+          <div class="skeleton-card" aria-hidden="true"></div>
+          <div class="skeleton-card" aria-hidden="true"></div>
+        </div>
+
+        <!-- Screen-reader live region for carousel position announcements (Req 16.8) -->
+        <div class="sr-announcements" aria-live="polite" aria-atomic="true"></div>
+      </section>
+
+      <!-- UI controls — mute toggle, pause/play (Req 7.6, 16.7) -->
+      <div class="ui-controls">
+        <button class="mute-toggle" aria-label="Mute audio" aria-pressed="false">
+          <span class="mute-toggle__icon" aria-hidden="true">🔊</span>
+        </button>
+        <button class="pause-toggle" aria-label="Pause animations" aria-pressed="false">
+          <span class="pause-toggle__icon" aria-hidden="true">⏸</span>
+        </button>
+      </div>
+    </main>
+
+    <!-- Footer (Req 8.4, 13.5) -->
+    <footer class="site-footer">
+      <p class="footer-copyright">&copy; <span class="footer-year">2025</span> Dosswerks Arcade</p>
+      <a href="./" class="return-to-arcade">Return to Arcade</a>
+      <p class="game-count" aria-live="polite">
+        <!-- Game count populated by JS -->
+        <span class="game-count__number">0</span> games
+      </p>
+    </footer>
+
+  </div><!-- /.brick-facade -->
+
+  <script type="module" src="js/app.js"></script>
+
+  <!--
+    RETURN TO ARCADE — Copy-paste snippet for individual game pages:
+
+    <a href="https://yourusername.github.io/dosswerks-arcade/#game-slug"
+       style="position:fixed;top:10px;left:10px;color:#ffb347;font-family:monospace;
+              font-size:12px;text-decoration:none;opacity:0.7;z-index:999;">
+      ← Back to Arcade
+    </a>
+  -->
+</body>
+</html>

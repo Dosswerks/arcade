@@ -1,0 +1,637 @@
+/* ==========================================================================
+   Dosswerks Arcade — Complete Stylesheet
+   Flynn's Arcade neon aesthetic, mobile-first responsive design
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Custom Properties (Design Tokens)
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* Color palette — Flynn's Arcade neon */
+  --color-bg: #0a0a0f;
+  --color-brick: #1a1210;
+  --color-brick-mortar: #2a2018;
+  --color-neon-amber: #ffb347;
+  --color-neon-yellow: #ffe066;
+  --color-neon-glow: rgba(255, 179, 71, 0.6);
+  --color-neon-glow-strong: rgba(255, 179, 71, 0.9);
+  --color-text: #e8e0d4;
+  --color-text-muted: #8a8070;
+  --color-surface: #141012;
+  --color-overlay: rgba(0, 0, 0, 0.85);
+
+  /* Typography */
+  --font-display: 'Press Start 2P', monospace;
+  --font-body: system-ui, -apple-system, sans-serif;
+  --font-size-base: 16px;
+
+  /* Spacing */
+  --card-gap: 1.5rem;
+  --page-padding: 1rem;
+
+  /* Animation */
+  --transition-card: 400ms ease-out;
+  --transition-fade: 200ms ease;
+
+  /* Card dimensions (mobile-first) */
+  --card-width: 260px;
+  --card-height: 420px;
+  --card-scale-inactive: 0.75;
+  --card-brightness-inactive: 0.6;
+
+  /* Archway */
+  --archway-radius: 50% 50% 0 0;
+  --archway-border: 2px solid var(--color-neon-amber);
+  --archway-glow: 0 0 15px var(--color-neon-glow), inset 0 0 15px var(--color-neon-glow);
+
+  /* Z-Index Layering System */
+  --z-cards: 1;
+  --z-card-active: 2;
+  --z-featured-badge: 3;
+  --z-nav-arrows: 10;
+  --z-glow: 15;
+  --z-controls: 20;
+  --z-skip-link: 25;
+  --z-modal-backdrop: 100;
+  --z-modal: 101;
+}
+
+/* --------------------------------------------------------------------------
+   2. @font-face
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('fonts/PressStart2P.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
+   3. Base Reset & Body
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  margin: 0;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   4. Skip Link
+   -------------------------------------------------------------------------- */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-bg);
+  color: var(--color-neon-amber);
+  border: var(--archway-border);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  text-decoration: none;
+  z-index: var(--z-skip-link);
+  transition: top var(--transition-fade);
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--color-neon-amber);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   5. Brick Facade
+   -------------------------------------------------------------------------- */
+
+.brick-facade {
+  background-color: var(--color-brick);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 38px,
+      var(--color-brick-mortar) 38px,
+      var(--color-brick-mortar) 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 78px,
+      var(--color-brick-mortar) 78px,
+      var(--color-brick-mortar) 80px
+    );
+  min-height: 100vh;
+  padding: var(--page-padding);
+}
+
+/* --------------------------------------------------------------------------
+   6. Neon Logo
+   -------------------------------------------------------------------------- */
+
+.neon-logo {
+  color: var(--color-neon-yellow);
+  text-shadow:
+    0 0 7px var(--color-neon-amber),
+    0 0 10px var(--color-neon-amber),
+    0 0 21px var(--color-neon-amber),
+    0 0 42px var(--color-neon-glow),
+    0 0 82px var(--color-neon-glow),
+    0 0 92px var(--color-neon-glow);
+  font-family: var(--font-display);
+  text-align: center;
+  margin: 0;
+  padding: 1.5rem 0;
+  font-size: clamp(1rem, 4vw, 2.5rem);
+  letter-spacing: 0.1em;
+}
+
+/* --------------------------------------------------------------------------
+   7. Site Header
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  text-align: center;
+  padding: 1rem 0 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   8. Carousel
+   -------------------------------------------------------------------------- */
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.carousel-track {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--card-gap);
+  transition: transform var(--transition-card);
+  will-change: transform;
+}
+
+.carousel-nav {
+  position: relative;
+  z-index: var(--z-nav-arrows);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: var(--z-nav-arrows);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: var(--archway-border);
+  color: var(--color-neon-amber);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow var(--transition-fade), background var(--transition-fade);
+  line-height: 1;
+  padding: 0;
+}
+
+.carousel-btn--prev {
+  left: 0.5rem;
+}
+
+.carousel-btn--next {
+  right: 0.5rem;
+}
+
+.carousel-btn:hover {
+  box-shadow: var(--archway-glow);
+  background: rgba(255, 179, 71, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   9. Game Cards
+   -------------------------------------------------------------------------- */
+
+.game-card {
+  width: var(--card-width);
+  flex-shrink: 0;
+  transition: transform var(--transition-card), filter var(--transition-card);
+  position: relative;
+  z-index: var(--z-cards);
+}
+
+.game-card.active {
+  transform: scale(1);
+  filter: brightness(1);
+  z-index: var(--z-card-active);
+}
+
+.game-card:not(.active) {
+  transform: scale(var(--card-scale-inactive));
+  filter: brightness(var(--card-brightness-inactive));
+}
+
+.card-archway {
+  border-radius: var(--archway-radius);
+  border: var(--archway-border);
+  box-shadow: var(--archway-glow);
+  overflow: hidden;
+  background: var(--color-surface);
+  position: relative;
+}
+
+.card-marquee {
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+  font-family: var(--font-display);
+  font-size: clamp(0.55rem, 1.5vw, 0.75rem);
+  color: var(--color-neon-yellow);
+  letter-spacing: 0.05em;
+}
+
+.card-media {
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-media img,
+.card-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-info {
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.card-description {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0 0 0.75rem;
+}
+
+.card-play-btn {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: transparent;
+  border: 2px solid var(--color-neon-amber);
+  color: var(--color-neon-amber);
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: background var(--transition-fade), box-shadow var(--transition-fade);
+  cursor: pointer;
+}
+
+.card-play-btn:hover {
+  background: rgba(255, 179, 71, 0.15);
+  box-shadow: 0 0 12px var(--color-neon-glow), inset 0 0 12px var(--color-neon-glow);
+}
+
+.card-play-btn:disabled,
+.card-play-btn[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   10. Coming Soon Overlay
+   -------------------------------------------------------------------------- */
+
+.card-coming-soon-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  color: var(--color-neon-amber);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.card-coming-soon-overlay.hidden {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   11. Featured Badge
+   -------------------------------------------------------------------------- */
+
+.card-featured-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: var(--z-featured-badge);
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--color-neon-amber);
+  padding: 0.2rem 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.5rem;
+  color: var(--color-neon-amber);
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-featured-badge.hidden {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   12. Skeleton Cards
+   -------------------------------------------------------------------------- */
+
+.skeleton-card {
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: var(--archway-radius);
+  background: linear-gradient(
+    90deg,
+    var(--color-surface) 25%,
+    #1e1a18 50%,
+    var(--color-surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   13. @keyframes — Shimmer
+   -------------------------------------------------------------------------- */
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14. @keyframes — Reveal Animation
+   -------------------------------------------------------------------------- */
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.brick-facade.revealing {
+  animation: reveal 2s ease-out forwards;
+}
+
+/* --------------------------------------------------------------------------
+   15. UI Controls (Mute / Pause)
+   -------------------------------------------------------------------------- */
+
+.ui-controls {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: var(--z-controls);
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.25rem;
+}
+
+.mute-toggle,
+.pause-toggle {
+  background: var(--color-surface);
+  border: var(--archway-border);
+  color: var(--color-neon-amber);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: box-shadow var(--transition-fade), background var(--transition-fade);
+}
+
+.mute-toggle:hover,
+.pause-toggle:hover {
+  box-shadow: var(--archway-glow);
+  background: rgba(255, 179, 71, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   16. Detail Modal
+   -------------------------------------------------------------------------- */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: var(--color-overlay);
+  z-index: var(--z-modal-backdrop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: var(--color-surface);
+  border: var(--archway-border);
+  box-shadow: var(--archway-glow);
+  border-radius: 12px;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2rem;
+  z-index: var(--z-modal);
+  position: relative;
+  width: 90%;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--color-neon-amber);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+  transition: text-shadow var(--transition-fade);
+}
+
+.modal-close:hover {
+  text-shadow: 0 0 8px var(--color-neon-glow);
+}
+
+.modal-content .card-play-btn {
+  font-size: 0.75rem;
+  padding: 0.75rem 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   17. Footer
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.return-to-arcade {
+  color: var(--color-neon-amber);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity var(--transition-fade);
+}
+
+.return-to-arcade:hover {
+  opacity: 1;
+}
+
+.game-count {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  color: var(--color-neon-amber);
+  margin-top: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   18. Noscript Fallback
+   -------------------------------------------------------------------------- */
+
+.noscript-fallback {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--color-text);
+}
+
+/* --------------------------------------------------------------------------
+   19. Screen Reader Announcements
+   -------------------------------------------------------------------------- */
+
+.sr-announcements {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   20. Focus Indicators
+   -------------------------------------------------------------------------- */
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible,
+.card-play-btn:focus-visible,
+.carousel-btn:focus-visible,
+.mute-toggle:focus-visible,
+.pause-toggle:focus-visible,
+.modal-close:focus-visible {
+  outline: 2px solid var(--color-neon-amber);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   21. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 768px) {
+  :root {
+    --card-width: 280px;
+    --card-height: 450px;
+    --page-padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --card-width: 340px;
+    --card-height: 520px;
+    --page-padding: 2rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   22. Reduced Motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   23. Ambient Glow on Archways
+   -------------------------------------------------------------------------- */
+
+.card-archway::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  border-radius: var(--archway-radius);
+  background: radial-gradient(
+    ellipse at center top,
+    var(--color-neon-glow) 0%,
+    transparent 70%
+  );
+  z-index: -1;
+  opacity: 0.4;
+  pointer-events: none;
+  transition: opacity var(--transition-fade);
+}
+
+.game-card.active .card-archway::before {
+  opacity: 0.7;
+}
+
+.game-card:not(.active) .card-archway::before {
+  opacity: 0.2;
+}
