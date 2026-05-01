@@ -146,8 +146,9 @@ body {
     0 0 16px #e8a020,
     0 0 32px #e8841e,
     0 0 48px rgba(232, 132, 30, 0.8),
-    0 0 72px rgba(192, 48, 30, 0.6),
-    0 0 100px rgba(192, 48, 30, 0.4);
+    0 0 72px rgba(192, 48, 30, 0.7),
+    0 0 100px rgba(192, 48, 30, 0.5),
+    0 0 140px rgba(180, 40, 25, 0.4);
   font-family: 'NeoNeon', var(--font-display);
   text-align: center;
   margin: 0;
@@ -173,13 +174,16 @@ body {
 
 .carousel {
   position: relative;
-  overflow: hidden;
   padding: 2rem 0;
+}
+
+.carousel-viewport {
+  overflow: hidden;
 }
 
 .carousel-track {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: var(--card-gap);
   transition: transform var(--transition-card);
   will-change: transform;
@@ -233,21 +237,28 @@ body {
 
 .game-card {
   width: var(--card-width);
+  height: var(--card-height);
   flex-shrink: 0;
-  transition: transform var(--transition-card), filter var(--transition-card);
   position: relative;
   z-index: var(--z-cards);
 }
 
 .game-card.active {
-  transform: scale(1);
-  filter: brightness(1);
   z-index: var(--z-card-active);
 }
 
-.game-card:not(.active) {
+.game-card .card-archway {
+  transition: transform 300ms ease, filter 300ms ease, opacity 300ms ease;
   transform: scale(var(--card-scale-inactive));
   filter: brightness(var(--card-brightness-inactive));
+  opacity: 0.7;
+  transform-origin: bottom center;
+}
+
+.game-card.active .card-archway {
+  transform: scale(1);
+  filter: brightness(1);
+  opacity: 1;
 }
 
 .card-archway {
@@ -257,22 +268,21 @@ body {
   overflow: hidden;
   background: var(--color-surface);
   position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-marquee {
-  padding: 0.75rem 0.5rem;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.3);
-  font-family: var(--font-display);
-  font-size: clamp(0.55rem, 1.5vw, 0.75rem);
-  color: var(--color-neon-yellow);
-  letter-spacing: 0.05em;
+  display: none;
 }
 
 .card-media {
   aspect-ratio: 2 / 3;
   overflow: hidden;
   position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .card-media img,
@@ -280,19 +290,17 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
 }
 
 .card-info {
-  padding: 0.75rem;
+  padding: 0.4rem 0.5rem;
   text-align: center;
 }
 
 .card-description {
-  color: var(--color-text-muted);
-  font-size: 0.85rem;
-  line-height: 1.4;
-  margin: 0 0 0.75rem;
+  display: none;
 }
 
 .card-play-btn {
@@ -529,10 +537,7 @@ body {
 }
 
 .game-count {
-  font-family: var(--font-display);
-  font-size: 0.6rem;
-  color: var(--color-neon-amber);
-  margin-top: 0.5rem;
+  display: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -589,21 +594,48 @@ button:focus-visible,
 
 @media (min-width: 1024px) {
   :root {
-    --card-width: 240px;
-    --card-height: 380px;
-    --page-padding: 1.5rem;
+    --card-width: 250px;
+    --card-height: 420px;
+    --page-padding: 1rem;
   }
 
   .site-header {
     padding: 0.5rem 0 0.25rem;
   }
 
+  .neon-logo {
+    padding: 0.75rem 0;
+  }
+
   .carousel {
-    padding: 1rem 0;
+    padding: 0.75rem 0;
+  }
+
+  .card-media {
+    aspect-ratio: 3 / 4;
+  }
+
+  .card-marquee {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.5rem;
+  }
+
+  .card-info {
+    padding: 0.5rem;
+  }
+
+  .card-description {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-play-btn {
+    padding: 0.35rem 0.9rem;
+    font-size: 0.55rem;
   }
 
   .site-footer {
-    padding: 1rem;
+    padding: 0.75rem 1rem;
   }
 }
 

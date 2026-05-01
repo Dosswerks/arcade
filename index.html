@@ -67,11 +67,13 @@
           </button>
         </nav>
 
-        <!-- Card track — JS will inject real cards here; skeleton cards show before JS loads (Req 19.1) -->
-        <div class="carousel-track">
-          <div class="skeleton-card" aria-hidden="true"></div>
-          <div class="skeleton-card" aria-hidden="true"></div>
-          <div class="skeleton-card" aria-hidden="true"></div>
+        <!-- Card track viewport — clips overflow while allowing nav buttons to sit outside -->
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <div class="skeleton-card" aria-hidden="true"></div>
+            <div class="skeleton-card" aria-hidden="true"></div>
+            <div class="skeleton-card" aria-hidden="true"></div>
+          </div>
         </div>
 
         <!-- Screen-reader live region for carousel position announcements (Req 16.8) -->
@@ -91,13 +93,9 @@
 
     <!-- Footer (Req 8.4, 13.5) -->
     <footer class="site-footer">
-      <p class="footer-copyright">&copy; 2026 <a href="https://andrewdoss.com" target="_blank" rel="noopener noreferrer" style="color:var(--color-neon-amber);text-decoration:none;opacity:0.8;">Andrew Doss</a></p>
-      <p class="game-count" aria-live="polite">
-        <!-- Game count populated by JS -->
-        <span class="game-count__number">0</span> games
-      </p>
-      <div class="tip-jar-section" style="margin-top:1.5rem;text-align:center;">
-        <p style="font-size:14px;color:var(--color-text-muted);line-height:1.6;margin-bottom:10px;">Enjoying the arcade? Tips help keep the games coming!</p>
+      <p class="footer-copyright" style="margin:0;">&copy; 2026 <a href="https://andrewdoss.com" target="_blank" rel="noopener noreferrer" style="color:var(--color-neon-amber);text-decoration:none;opacity:0.8;">Andrew Doss</a></p>
+      <div class="tip-jar-section" style="margin-top:0.25rem;text-align:center;">
+        <p style="font-size:0.95rem;color:var(--color-text-muted);line-height:1.4;margin:0 0 6px;">Enjoying the arcade? Tips help keep the games coming!</p>
         <div style="display:flex;align-items:center;justify-content:center;gap:20px;">
           <form action="https://www.paypal.com/donate" method="post" target="_blank">
             <input type="hidden" name="hosted_button_id" value="HDD77QKGC6XXN">
@@ -118,9 +116,8 @@
               </svg>
             </button>
           </form>
-          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;position:relative;top:-4px;">
             <div id="qr-code" style="background:#fff;padding:4px;border-radius:4px;"></div>
-            <span style="font-size:12px;color:var(--color-text-muted);">Scan to tip</span>
           </div>
         </div>
       </div>
