@@ -98,7 +98,7 @@ const DetailModal = {
       content.appendChild(logo);
     } else {
       const titleEl = document.createElement('h2');
-      titleEl.textContent = sanitizeHTML(game.title);
+      titleEl.textContent = game.title;
       titleEl.style.marginTop = '0';
       content.appendChild(titleEl);
     }
@@ -112,6 +112,8 @@ const DetailModal = {
       video.setAttribute('playsinline', '');
       video.setAttribute('aria-label', `${sanitizeHTML(game.title)} gameplay preview`);
       video.style.width = '100%';
+      video.style.maxHeight = '35vh';
+      video.style.objectFit = 'contain';
       video.style.borderRadius = '6px';
       video.style.marginBottom = '1rem';
 
@@ -137,6 +139,8 @@ const DetailModal = {
       coverImg.src = game.cover_image;
       coverImg.alt = `${sanitizeHTML(game.title)} cover art`;
       coverImg.style.width = '100%';
+      coverImg.style.maxHeight = '35vh';
+      coverImg.style.objectFit = 'contain';
       coverImg.style.borderRadius = '6px';
       coverImg.style.marginBottom = '1rem';
       content.appendChild(coverImg);
