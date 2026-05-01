@@ -4,61 +4,72 @@
     {
       "title": "Barrel Bears",
       "slug": "barrel-bears",
-      "description": "Catch falling bear cubs in your barrel before they hit the ground!",
-      "long_description": "A fast-paced arcade game inspired by the Atari classic Kaboom. Move your barrel left and right to catch falling bear cubs. Speed increases with each level. How long can you keep up?",
-      "cover_image": "assets/barrel-bears-cover.webp",
-      "cover_image_fallback": "assets/barrel-bears-cover.jpg",
-      "attract_video": "assets/barrel-bears-attract.mp4",
-      "attract_video_webm": "assets/barrel-bears-attract.webm",
+      "description": "Save the cubs! A Kaboom-inspired video game in which the player rescues bear cubs being tossed out of trees by their mama bear.",
+      "cover_image": "https://dosswerks.github.io/arcade/assets/barrel-bears-cover.jpg",
       "game_url": "https://dosswerks.github.io/barrel-bears/",
-      "logo_image": "assets/barrel-bears-logo.webp",
       "display_order": 1,
-      "publication_date": "2025-01-15",
-      "featured": true,
-      "status": "published",
-      "screenshots": [
-        "assets/barrel-bears-ss1.webp",
-        "assets/barrel-bears-ss2.webp"
-      ],
-      "controls": "Move mouse or finger horizontally to position the barrel. Catch all falling cubs!",
-      "credits": "Design & Code: Dosswerks"
+      "featured": false,
+      "status": "published"
     },
     {
-      "title": "Krampus Run",
-      "slug": "krampus-run",
-      "description": "Outrun the holiday horror through twisted streets before Krampus catches you!",
-      "long_description": "Dash through a dark village on Christmas Eve as Krampus closes in. Dodge obstacles, grab power-ups, and survive as long as you can in this endless runner with a spooky holiday twist.",
-      "cover_image": "assets/krampus-cover.webp",
-      "cover_image_fallback": "assets/krampus-cover.jpg",
-      "attract_video": "assets/krampus-attract.mp4",
-      "attract_video_webm": "assets/krampus-attract.webm",
-      "game_url": "https://dosswerks.github.io/krampus/",
-      "logo_image": "assets/krampus-logo.webp",
+      "title": "Can't Drive 55",
+      "slug": "cant-drive-55",
+      "description": "Can't Drive 55 is a pseudo-3D arcade driving game in which the drives the band while dodging police cruisers at high speed.",
+      "cover_image": "https://dosswerks.github.io/arcade/assets/cant-drive-55-cover.jpg",
+      "game_url": "https://dosswerks.github.io/cant-drive-55/",
       "display_order": 2,
-      "publication_date": "2025-03-01",
       "featured": false,
-      "status": "published",
-      "controls": "Tap or click to jump. Double-tap for a high jump. Avoid all obstacles!"
+      "status": "published"
     },
     {
       "title": "Innsmouth Invaders",
       "slug": "innsmouth-invaders",
-      "description": "Defend the coast from Lovecraftian sea creatures in this retro shooter.",
-      "cover_image": "assets/innsmouth-cover.webp",
+      "description": "A Lovecraft-themed arcade shooter in which the player defends the shoreline against waves of sea-born horrors Cthulhu himself.",
+      "cover_image": "https://dosswerks.github.io/arcade/assets/innsmouth-invaders-cover.jpg",
       "game_url": "https://dosswerks.github.io/innsmouth-invaders/",
       "display_order": 3,
       "featured": false,
-      "status": "coming_soon"
+      "status": "published"
     },
     {
-      "title": "Secret Project",
-      "slug": "secret-project",
-      "description": "Something mysterious is in the works. Stay tuned for the big reveal!",
-      "cover_image": "assets/secret-project-cover.webp",
-      "game_url": "https://dosswerks.github.io/secret-project/",
+      "title": "Mountains Of Madness",
+      "slug": "mountains-of-madness",
+      "description": "A classic shooter set in HP Lovecraft's Antarctic horror universe in which the player battles Elder Things before blasting into a Shoggoth's ice cave.",
+      "cover_image": "https://dosswerks.github.io/arcade/assets/mountains-of-madness-cover.jpg",
+      "game_url": "https://dosswerks.github.io/mountains-of-madness/",
       "display_order": 4,
       "featured": false,
-      "status": "unpublished"
+      "status": "published"
+    },
+    {
+      "title": "Phantasm: Silver Spheres",
+      "slug": "phantasm-silver-spheres",
+      "description": "A Donkey Kong-style arcade platformer where Reggie battles dwarves, sentinel spheres, and the Tall Man to rescue Mike from the Morningside Mausoleum.",
+      "cover_image": "https://dosswerks.github.io/arcade/assets/phantasm-cover.jpg",
+      "game_url": "https://dosswerks.github.io/phantasm/",
+      "display_order": 5,
+      "featured": false,
+      "status": "published"
+    },
+    {
+      "title": "Runway Rush",
+      "slug": "runway-rush",
+      "description": "Get them there on time! A Frogger-inspired arcade game set in a busy airport.",
+      "cover_image": "https://dosswerks.github.io/arcade/assets/runway-rush-cover.jpg",
+      "game_url": "https://dosswerks.github.io/runway-rush/",
+      "display_order": 6,
+      "featured": false,
+      "status": "published"
+    },
+    {
+      "title": "Sky Snacker",
+      "slug": "sky-snacker",
+      "description": "An in-flight feeding frenzy! A Tapper-inspired arcade game where you serve snacks to impatient passengers.",
+      "cover_image": "https://dosswerks.github.io/arcade/assets/sky-snacker-cover.jpg",
+      "game_url": "https://dosswerks.github.io/sky-snacker/",
+      "display_order": 7,
+      "featured": false,
+      "status": "published"
     }
   ]
 }
