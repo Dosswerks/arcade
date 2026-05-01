@@ -12,8 +12,9 @@ const FULL_GLOW =
   ' 0 0 16px #e8a020,' +
   ' 0 0 32px #e8841e,' +
   ' 0 0 48px rgba(232, 132, 30, 0.8),' +
-  ' 0 0 72px rgba(192, 48, 30, 0.6),' +
-  ' 0 0 100px rgba(192, 48, 30, 0.4)';
+  ' 0 0 72px rgba(192, 48, 30, 0.7),' +
+  ' 0 0 100px rgba(192, 48, 30, 0.5),' +
+  ' 0 0 140px rgba(180, 40, 25, 0.4)';
 
 /**
  * Dimmed text-shadow used during a flicker dip.
@@ -25,13 +26,13 @@ const DIM_GLOW =
   ' 0 0 8px rgba(232, 132, 30, 0.4)';
 
 /** Minimum flicker chance per frame per letter (fraction). */
-const FLICKER_CHANCE_MIN = 0.02;
+const FLICKER_CHANCE_MIN = 0.001;
 /** Maximum flicker chance per frame per letter (fraction). */
-const FLICKER_CHANCE_MAX = 0.05;
+const FLICKER_CHANCE_MAX = 0.005;
 /** Minimum flicker dip duration in ms. */
-const FLICKER_DURATION_MIN = 50;
+const FLICKER_DURATION_MIN = 100;
 /** Maximum flicker dip duration in ms. */
-const FLICKER_DURATION_MAX = 150;
+const FLICKER_DURATION_MAX = 300;
 /** Minimum opacity during a flicker dip. */
 const FLICKER_OPACITY_MIN = 0.3;
 /** Maximum opacity during a flicker dip. */

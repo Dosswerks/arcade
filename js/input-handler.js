@@ -55,6 +55,10 @@ const TAP_THRESHOLD = 10;
  * @param {PointerEvent} e
  */
 function handlePointerDown(e) {
+  // Don't intercept clicks on nav buttons or play buttons
+  if (e.target.closest('.carousel-btn')) return;
+  if (e.target.closest('.card-play-btn')) return;
+
   startX = e.clientX;
   startY = e.clientY;
   startTime = Date.now();
@@ -208,8 +212,9 @@ const inputHandler = {
     carouselEl.addEventListener('pointerup', boundPointerUp);
     carouselEl.addEventListener('pointercancel', boundPointerCancel);
 
-    // Add keyboard listener
+    // Add keyboard listener — on both carousel and document for global arrow key support
     carouselEl.addEventListener('keydown', boundKeyDown);
+    document.addEventListener('keydown', boundKeyDown);
   },
 
   /**
@@ -237,7 +242,10 @@ const inputHandler = {
       if (boundPointerMove) carouselEl.removeEventListener('pointermove', boundPointerMove);
       if (boundPointerUp) carouselEl.removeEventListener('pointerup', boundPointerUp);
       if (boundPointerCancel) carouselEl.removeEventListener('pointercancel', boundPointerCancel);
-      if (boundKeyDown) carouselEl.removeEventListener('keydown', boundKeyDown);
+      if (boundKeyDown) {
+        carouselEl.removeEventListener('keydown', boundKeyDown);
+        document.removeEventListener('keydown', boundKeyDown);
+      }
     }
 
     carouselEl = null;

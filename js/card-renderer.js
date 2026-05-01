@@ -34,7 +34,7 @@ export function createCard(game, index) {
   } else {
     const marqueeText = document.createElement('span');
     marqueeText.className = 'card-marquee-text';
-    marqueeText.textContent = sanitizeHTML(game.title || '');
+    marqueeText.textContent = game.title || '';
     marquee.appendChild(marqueeText);
   }
 
@@ -66,7 +66,7 @@ export function createCard(game, index) {
 
   const desc = document.createElement('p');
   desc.className = 'card-description';
-  desc.textContent = truncate(sanitizeHTML(game.description || ''), 150);
+  desc.textContent = truncate(game.description || '', 150);
   info.appendChild(desc);
 
   const playBtn = document.createElement('a');
