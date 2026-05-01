@@ -7,21 +7,22 @@ import { prefersReducedMotion } from './utils.js';
  * Applied to each letter span at full brightness.
  */
 const FULL_GLOW =
-  '0 0 7px var(--color-neon-amber),' +
-  ' 0 0 10px var(--color-neon-amber),' +
-  ' 0 0 21px var(--color-neon-amber),' +
-  ' 0 0 42px var(--color-neon-glow),' +
-  ' 0 0 82px var(--color-neon-glow),' +
-  ' 0 0 92px var(--color-neon-glow)';
+  '0 0 4px #f5d862,' +
+  ' 0 0 8px #f5c842,' +
+  ' 0 0 16px #e8a020,' +
+  ' 0 0 32px #e8841e,' +
+  ' 0 0 48px rgba(232, 132, 30, 0.8),' +
+  ' 0 0 72px rgba(192, 48, 30, 0.6),' +
+  ' 0 0 100px rgba(192, 48, 30, 0.4)';
 
 /**
  * Dimmed text-shadow used during a flicker dip.
  * Reduces the glow radii to simulate a tube losing power briefly.
  */
 const DIM_GLOW =
-  '0 0 4px var(--color-neon-amber),' +
-  ' 0 0 6px var(--color-neon-amber),' +
-  ' 0 0 10px var(--color-neon-amber)';
+  '0 0 2px #f5c842,' +
+  ' 0 0 4px #e8a020,' +
+  ' 0 0 8px rgba(232, 132, 30, 0.4)';
 
 /** Minimum flicker chance per frame per letter (fraction). */
 const FLICKER_CHANCE_MIN = 0.02;
