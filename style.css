@@ -8,14 +8,16 @@
    -------------------------------------------------------------------------- */
 
 :root {
-  /* Color palette — Flynn's Arcade neon */
+  /* Color palette — Flynn's Arcade neon (matched to sign reference) */
   --color-bg: #0a0a0f;
   --color-brick: #1a1210;
   --color-brick-mortar: #2a2018;
-  --color-neon-amber: #ffb347;
-  --color-neon-yellow: #ffe066;
-  --color-neon-glow: rgba(255, 179, 71, 0.6);
-  --color-neon-glow-strong: rgba(255, 179, 71, 0.9);
+  --color-neon-core: #f5c842;
+  --color-neon-amber: #e8a020;
+  --color-neon-yellow: #f5d862;
+  --color-neon-glow: rgba(232, 132, 30, 0.6);
+  --color-neon-glow-strong: rgba(232, 132, 30, 0.9);
+  --color-neon-glow-outer: rgba(192, 48, 30, 0.5);
   --color-text: #e8e0d4;
   --color-text-muted: #8a8070;
   --color-surface: #141012;
@@ -43,8 +45,8 @@
   /* Archway */
   /* Archway — semicircular top using half the card width as radius */
   --archway-radius: calc(var(--card-width) / 2) calc(var(--card-width) / 2) 0 0;
-  --archway-border: 2px solid var(--color-neon-amber);
-  --archway-glow: 0 0 15px var(--color-neon-glow), inset 0 0 15px var(--color-neon-glow);
+  --archway-border: 2px solid var(--color-neon-core);
+  --archway-glow: 0 0 10px var(--color-neon-glow), 0 0 20px var(--color-neon-glow-outer), inset 0 0 10px var(--color-neon-glow);
 
   /* Z-Index Layering System */
   --z-cards: 1;
@@ -137,14 +139,15 @@ body {
    -------------------------------------------------------------------------- */
 
 .neon-logo {
-  color: var(--color-neon-yellow);
+  color: var(--color-neon-core);
   text-shadow:
-    0 0 7px var(--color-neon-amber),
-    0 0 10px var(--color-neon-amber),
-    0 0 21px var(--color-neon-amber),
-    0 0 42px var(--color-neon-glow),
-    0 0 82px var(--color-neon-glow),
-    0 0 92px var(--color-neon-glow);
+    0 0 4px #f5d862,
+    0 0 8px #f5c842,
+    0 0 16px #e8a020,
+    0 0 32px #e8841e,
+    0 0 48px rgba(232, 132, 30, 0.8),
+    0 0 72px rgba(192, 48, 30, 0.6),
+    0 0 100px rgba(192, 48, 30, 0.4);
   font-family: 'NeoNeon', var(--font-display);
   text-align: center;
   margin: 0;
@@ -183,7 +186,9 @@ body {
 }
 
 .carousel-nav {
-  position: relative;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
   z-index: var(--z-nav-arrows);
 }
 
@@ -206,6 +211,7 @@ body {
   transition: box-shadow var(--transition-fade), background var(--transition-fade);
   line-height: 1;
   padding: 0;
+  pointer-events: auto;
 }
 
 .carousel-btn--prev {
@@ -508,7 +514,7 @@ body {
   text-align: center;
   padding: 2rem 1rem;
   color: var(--color-text-muted);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
 }
 
 .return-to-arcade {
