@@ -589,9 +589,21 @@ button:focus-visible,
 
 @media (min-width: 1024px) {
   :root {
-    --card-width: 340px;
-    --card-height: 520px;
-    --page-padding: 2rem;
+    --card-width: 240px;
+    --card-height: 380px;
+    --page-padding: 1.5rem;
+  }
+
+  .site-header {
+    padding: 0.5rem 0 0.25rem;
+  }
+
+  .carousel {
+    padding: 1rem 0;
+  }
+
+  .site-footer {
+    padding: 1rem;
   }
 }
 
