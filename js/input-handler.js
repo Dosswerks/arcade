@@ -26,6 +26,9 @@ let startY = 0;
 /** @type {number} */
 let startTime = 0;
 
+/** @type {EventTarget|null} */
+let startTarget = null;
+
 // ── Bound listener references (for cleanup) ──────────────────────
 
 /** @type {Function|null} */
@@ -62,6 +65,7 @@ function handlePointerDown(e) {
   startX = e.clientX;
   startY = e.clientY;
   startTime = Date.now();
+  startTarget = e.target;
   isTracking = true;
   isLockedHorizontal = false;
 
@@ -122,7 +126,7 @@ function handlePointerUp(e) {
   } else if (totalMovement < TAP_THRESHOLD) {
     // Minimal movement — treat as tap/click
     if (selectCallback) {
-      selectCallback(e.target);
+      selectCallback(startTarget);
     }
   }
 
@@ -253,6 +257,7 @@ const inputHandler = {
     selectCallback = null;
     isTracking = false;
     isLockedHorizontal = false;
+    startTarget = null;
     startX = 0;
     startY = 0;
     startTime = 0;
