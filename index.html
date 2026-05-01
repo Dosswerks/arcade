@@ -27,6 +27,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
 </head>
 <body class="arcade-page">
 
@@ -90,17 +91,53 @@
 
     <!-- Footer (Req 8.4, 13.5) -->
     <footer class="site-footer">
-      <p class="footer-copyright">&copy; <span class="footer-year">2025</span> Dosswerks Arcade</p>
-      <a href="./" class="return-to-arcade">Return to Arcade</a>
+      <p class="footer-copyright">&copy; 2026 <a href="https://andrewdoss.com" target="_blank" rel="noopener noreferrer" style="color:var(--color-neon-amber);text-decoration:none;opacity:0.8;">Andrew Doss</a></p>
       <p class="game-count" aria-live="polite">
         <!-- Game count populated by JS -->
         <span class="game-count__number">0</span> games
       </p>
+      <div class="tip-jar-section" style="margin-top:1.5rem;text-align:center;">
+        <p style="font-size:14px;color:var(--color-text-muted);line-height:1.6;margin-bottom:10px;">Enjoying the arcade? Tips help keep the games coming!</p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:20px;">
+          <form action="https://www.paypal.com/donate" method="post" target="_blank">
+            <input type="hidden" name="hosted_button_id" value="HDD77QKGC6XXN">
+            <button type="submit" style="padding:0;background:none;border:none;cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:4px;transition:transform 0.2s" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+              <svg xmlns="http://www.w3.org/2000/svg" width="80" height="100" viewBox="0 0 80 100" fill="none">
+                <rect x="16" y="8" width="48" height="8" rx="2" fill="#aaa"/>
+                <rect x="34" y="2" width="12" height="8" rx="2" fill="#999"/>
+                <rect x="36" y="4" width="8" height="3" rx="1" fill="#777"/>
+                <path d="M18 16 L16 82 Q16 90 24 90 L56 90 Q64 90 64 82 L62 16 Z" fill="rgba(180,220,255,0.18)" stroke="rgba(200,230,255,0.5)" stroke-width="2"/>
+                <path d="M22 20 L21 75" stroke="rgba(255,255,255,0.15)" stroke-width="3" stroke-linecap="round"/>
+                <text x="40" y="38" text-anchor="middle" font-size="9" font-weight="bold" fill="rgba(255,255,255,0.7)" font-family="sans-serif" letter-spacing="1">TIP JAR</text>
+                <g transform="rotate(-12 40 55)"><rect x="26" y="48" width="30" height="16" rx="2" fill="#3a7d44"/><text x="41" y="60" text-anchor="middle" font-size="12" font-weight="bold" fill="#6ec77a" font-family="serif">$</text></g>
+                <g transform="rotate(8 40 60)"><rect x="24" y="54" width="30" height="16" rx="2" fill="#2e6b38"/><text x="39" y="66" text-anchor="middle" font-size="12" font-weight="bold" fill="#5cb868" font-family="serif">$</text></g>
+                <g transform="rotate(-5 40 65)"><rect x="28" y="62" width="30" height="16" rx="2" fill="#357a3f"/><text x="43" y="74" text-anchor="middle" font-size="12" font-weight="bold" fill="#7dd48a" font-family="serif">$</text></g>
+                <ellipse cx="30" cy="78" rx="6" ry="3" fill="#d4a017" stroke="#b8860b" stroke-width="1"/>
+                <ellipse cx="42" cy="80" rx="5" ry="2.5" fill="#daa520" stroke="#b8860b" stroke-width="1"/>
+                <ellipse cx="52" cy="77" rx="5" ry="3" fill="#c9960c" stroke="#a07608" stroke-width="1"/>
+              </svg>
+            </button>
+          </form>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div id="qr-code" style="background:#fff;padding:4px;border-radius:4px;"></div>
+            <span style="font-size:12px;color:var(--color-text-muted);">Scan to tip</span>
+          </div>
+        </div>
+      </div>
     </footer>
 
   </div><!-- /.brick-facade -->
 
   <script type="module" src="js/app.js"></script>
+  <script>
+    (function(){
+      var qr = qrcode(0, 'L');
+      qr.addData('https://www.paypal.com/donate/?hosted_button_id=HDD77QKGC6XXN');
+      qr.make();
+      var el = document.getElementById('qr-code');
+      if (el) el.innerHTML = qr.createSvgTag({cellSize:2, margin:0});
+    })();
+  </script>
 
   <!--
     RETURN TO ARCADE — Copy-paste snippet for individual game pages:
