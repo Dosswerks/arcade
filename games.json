@@ -2,12 +2,22 @@
   "schema_version": 1,
   "games": [
     {
+      "title": "Dagon",
+      "slug": "dagon",
+      "description": "A Defender-style underwater arcade shooter inspired by H.P. Lovecraft's short story Dagon. Defend the Monolith and protect the Deep Ones from abduction in the depths of a Lovecraftian ocean.",
+      "cover_image": "https://dosswerks.github.io/arcade/assets/dagon-cover.jpg",
+      "game_url": "https://dosswerks.github.io/dagon/",
+      "display_order": 1,
+      "featured": true,
+      "status": "published"
+    },
+    {
       "title": "Barrel Bears",
       "slug": "barrel-bears",
       "description": "Save the cubs! A Kaboom-inspired video game in which the player rescues bear cubs being tossed out of trees by their mama bear.",
       "cover_image": "https://dosswerks.github.io/arcade/assets/barrel-bears-cover.jpg",
       "game_url": "https://dosswerks.github.io/barrel-bears/",
-      "display_order": 1,
+      "display_order": 2,
       "featured": false,
       "status": "published"
     },
@@ -17,7 +27,7 @@
       "description": "Can't Drive 55 is a pseudo-3D arcade driving game in which the drives the band while dodging police cruisers at high speed.",
       "cover_image": "https://dosswerks.github.io/arcade/assets/cant-drive-55-cover.jpg",
       "game_url": "https://dosswerks.github.io/cant-drive-55/",
-      "display_order": 2,
+      "display_order": 3,
       "featured": false,
       "status": "published"
     },
@@ -27,7 +37,7 @@
       "description": "A Lovecraft-themed arcade shooter in which the player defends the shoreline against waves of sea-born horrors Cthulhu himself.",
       "cover_image": "https://dosswerks.github.io/arcade/assets/innsmouth-invaders-cover.jpg",
       "game_url": "https://dosswerks.github.io/innsmouth-invaders/",
-      "display_order": 3,
+      "display_order": 4,
       "featured": false,
       "status": "published"
     },
@@ -37,7 +47,7 @@
       "description": "A classic shooter set in HP Lovecraft's Antarctic horror universe in which the player battles Elder Things before blasting into a Shoggoth's ice cave.",
       "cover_image": "https://dosswerks.github.io/arcade/assets/mountains-of-madness-cover.jpg",
       "game_url": "https://dosswerks.github.io/mountains-of-madness/",
-      "display_order": 4,
+      "display_order": 5,
       "featured": false,
       "status": "published"
     },
@@ -47,7 +57,7 @@
       "description": "A Donkey Kong-style arcade platformer where Reggie battles dwarves, sentinel spheres, and the Tall Man to rescue Mike from the Morningside Mausoleum.",
       "cover_image": "https://dosswerks.github.io/arcade/assets/phantasm-cover.jpg",
       "game_url": "https://dosswerks.github.io/phantasm/",
-      "display_order": 5,
+      "display_order": 6,
       "featured": false,
       "status": "published"
     },
@@ -57,7 +67,7 @@
       "description": "Get them there on time! A Frogger-inspired arcade game set in a busy airport.",
       "cover_image": "https://dosswerks.github.io/arcade/assets/runway-rush-cover.jpg",
       "game_url": "https://dosswerks.github.io/runway-rush/",
-      "display_order": 6,
+      "display_order": 7,
       "featured": false,
       "status": "published"
     },
@@ -67,7 +77,7 @@
       "description": "An in-flight feeding frenzy! A Tapper-inspired arcade game where you serve snacks to impatient passengers.",
       "cover_image": "https://dosswerks.github.io/arcade/assets/sky-snacker-cover.jpg",
       "game_url": "https://dosswerks.github.io/sky-snacker/",
-      "display_order": 7,
+      "display_order": 8,
       "featured": false,
       "status": "published"
     }
