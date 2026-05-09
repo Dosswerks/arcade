@@ -80,6 +80,16 @@
       "display_order": 8,
       "featured": false,
       "status": "published"
+    },
+    {
+      "title": "Jukebox",
+      "slug": "jukebox",
+      "description": "Drop a quarter and pick your track! A retro jukebox experience for the Dosswerks Arcade.",
+      "cover_image": "https://dosswerks.github.io/arcade/assets/jukebox-cover.jpg",
+      "game_url": "https://dosswerks.github.io/jukebox/",
+      "display_order": 9,
+      "featured": false,
+      "status": "published"
     }
   ]
 }
